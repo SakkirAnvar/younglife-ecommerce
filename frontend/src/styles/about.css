@@ -1,0 +1,14 @@
+.abouttitle{
+    margin: 30px;
+}
+.content{
+    padding: 10px 180px;
+    margin: 10px 250px;
+}
+.image img{
+    background-color: black;
+    border-radius: 250px;
+    width: 100px;
+    align-items: center;
+    margin: 20px 0px;
+}

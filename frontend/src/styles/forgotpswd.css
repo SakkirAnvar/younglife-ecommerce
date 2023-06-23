@@ -1,0 +1,14 @@
+.reset-card {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    width: calc(50% - 13rem);
+    height: 300px;
+    margin: 40px 0px;
+}
+.bgr {
+    background-color: #E4E8EB;
+}
+.reset-card h2{
+    margin-top: 17px;
+}

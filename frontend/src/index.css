@@ -1,14 +1,13 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+  margin: 0px;
+  padding: 0px;
 }
 
 /* font-family: 'Poppins', sans-serif;
 font-family: 'Playfair-Display', serif; */
 
 /* navbar css */
-.navbar{
+/* .navbar{
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
   line-height: 26px;
@@ -29,11 +28,11 @@ font-family: 'Playfair-Display', serif; */
   font-weight: 700;
   font-family: 'roboto', sans-serif;
   letter-spacing: 3px;
-}
+} */
 
 /* =======================================
 ======================================= */
-.footer{
+/* .footer{
   color:white;
   padding: 25px;
   background: #000000;
@@ -48,11 +47,11 @@ font-family: 'Playfair-Display', serif; */
 .footer a:hover{
   color: #ffefba;
   border-bottom: 1px solid #ffefba;
-}
+} */
 
 /* =======================================
 =============Sign Up============ */
-.register{
+/* .register{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,4 +63,4 @@ font-family: 'Playfair-Display', serif; */
   padding: 30px;
   border-radius: 8px;
 }
-
+ */

@@ -1,0 +1,42 @@
+.contact{
+    background-color:  #E4E8EB;
+}
+.contactcont{
+    margin-left: 100px;
+}
+.contactcont h3{
+    margin: 50px 0px 50px 0px;
+}
+.contactcont h1{
+    font-weight: bold;
+    font-size: 60px;
+    margin-right: 350px;
+}
+.contactcont p{
+    margin: 50px 0px 50px 0px;
+    padding-right: 350px;
+}
+.formContact{
+    padding: 40px;
+    margin-top: 150px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    width: 1000px;
+    border-radius: 10px;
+}
+.formContact input{
+    border: 1px solid grey;
+   height: 40px;
+    margin-top: 5px;
+    background-color: #E4E8EB;
+}
+.formContact textarea{
+    background-color: #E4E8EB;
+    margin-top: 5px;
+}
+.contactbtn{
+    width: 100%;
+}
+.formContact label{
+    font-weight: 500;
+}

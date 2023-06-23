@@ -1,0 +1,134 @@
+
+.footer-main {
+  padding: 20px 0px;
+  display: flow-root;
+  background-color: rgb(29, 27, 27);
+  align-items: center;
+  color: rgb(177, 173, 173);
+  /* height: 131px; */
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.links {
+  display: grid;
+}
+.links a {
+  text-decoration: none;
+  color: rgb(177, 173, 173);
+}
+.links a:hover {
+  color: white;
+  transition: 1s;
+}
+.slogan button {
+  border: 1px solid white;
+  background-color: rgb(29, 27, 27);
+  color: rgb(177, 173, 173);
+  height: 40px;
+  margin-top: 4px;
+}
+.slogan button:hover {
+  background-color: white;
+  color: black;
+}
+.slogan input {
+  height: 40px;
+  width: 200px;
+}
+.button a{
+   color: black;
+}
+.footer-3{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 35%;
+}
+.copyright h5{
+    margin-top: 80px;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+.wrapper .button{
+display: inline-block;
+height: 60px;
+width: 60px;
+float: left;
+margin: 0 5px;
+overflow: hidden;
+background: #fff;
+border-radius: 50px;
+cursor: pointer;
+box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+transition: all 0.3s ease-out;
+}
+.wrapper .button:hover{
+width: 200px;
+}
+.wrapper .button .icon{
+display: inline-block;
+height: 60px;
+width: 60px;
+text-align: center;
+border-radius: 50px;
+box-sizing: border-box;
+line-height: 60px;
+transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1):hover .icon{
+background: #4267B2;
+}
+.wrapper .button:nth-child(2):hover .icon{
+background: #1DA1F2;
+}
+.wrapper .button:nth-child(3):hover .icon{
+background: #E1306C;
+}
+
+.wrapper .button:nth-child(4):hover .icon{
+background: #ff0000;
+}
+.wrapper .button .icon i{
+font-size: 25px;
+line-height: 60px;
+transition: all 0.3s ease-out;
+}
+.wrapper .button:hover .icon i{
+color: #fff;
+}
+.wrapper .button span{
+font-size: 20px;
+font-weight: 500;
+line-height: 60px;
+margin-left: 10px;
+transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1) span{
+color: #4267B2;
+}
+.wrapper .button:nth-child(2) span{
+color: #1DA1F2;
+}
+.wrapper .button:nth-child(3) span{
+color: #E1306C;
+}
+.wrapper .button:nth-child(4) span{
+color: #ff0000;
+}
+.icon a{
+  color:  rgb(83, 83, 83);
+}
+
+@media (max-width:600px){
+  .footer-3 .footer-main{
+    width: 100px;
+    text-align: center;
+  }
+ 
+}
+

@@ -1,0 +1,26 @@
+.title h1{
+    background-color: rgb(1, 5, 53);
+    text-align: center;
+    padding: 10px;
+    color: rgb(247, 249, 250);
+}
+.catdes{
+   display: grid;
+   
+}
+.carding{
+    margin-top: 10px;
+    border: none;
+    background-color: rgb(1, 5, 53);
+    color: white;
+    margin-left: 250px;
+}
+.link a{
+    text-decoration: none;
+    text-align: center;
+}
+.link a:hover{
+    background-color: rgb(216, 218, 233);
+    color: black;
+    font-weight: bold;
+}

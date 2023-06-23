@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import '../../styles/products.css'
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -29,12 +30,12 @@ const Products = () => {
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9">
-          <h1 className="text-center">All Products</h1>
-          <div className="d-flex">
+        <div className="col-md-9 p-0">
+          <h1 className="text-center mt-4">All Products</h1>
+          <div className="d-flex flex-wrap ">
             {products?.map((p) => (
               <Link to={`/dashboard/admin/product/${p.slug}`} className="">
-                <div className="card m-2" style={{ width: "18rem" }}>
+                <div className="card proCard " style={{ width: "18rem" }}>
                   <img src={`/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>

@@ -1,10 +1,19 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+import SearchInput from "../Form/SearchInput";
+import useCategory from "../../Hooks/useCategory";
+import { useCart } from "../../context/cart";
+import { Badge } from "antd";
+import { FaSearch, FaShoppingBag, FaUserCircle } from "react-icons/fa";
+import "../../styles/Header.css";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
+  const [show, setShow] = useState(false);
+  const [cart] = useCart();
+  const categories = useCategory();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -14,11 +23,12 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
   };
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container container-fluid">
-          <a className="navbar-brand">Navbar</a>
+          <a className="navbar-brand">Younglife</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -31,21 +41,63 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto">
+              {/* <div className="search">
+                <SearchInput />
+              </div> */}
+              {show ? (
+                <li className="nav-item search">
+                  <SearchInput />
+                </li>
+              ) : null}
+              <li className="nav-item searchbtn">
+                <button className=" nav-link" onClick={() => setShow(!show)}>
+                  <FaSearch
+                    className="searchicon"
+                    style={{ fontSize: "1.4rem", fontWeight: "900" }}
+                  />
+                </button>
+              </li>
+
               <li className="nav-item">
                 <NavLink to="/" className="nav-link active" aria-current="page">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/category" className="nav-link">
-                  Cateogory
-                </NavLink>
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  to={"/categories"}
+                >
+                  Categories
+                </Link>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to={`/categories`} className="dropdown-item">
+                      All categories
+                    </Link>
+                  </li>
+                  {categories?.map((c) => (
+                    <li key={c._id}>
+                      <Link
+                        to={`/category/${c.slug}`}
+                        className="dropdown-item"
+                      >
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
               <li className="nav-item">
-                <NavLink to="/cart" className="nav-link" href="#">
-                  Cart (0)
-                </NavLink>
+                <Badge count={cart?.length} showZero>
+                  <NavLink to="/cart" className="nav-link" href="#">
+                    <FaShoppingBag
+                      style={{ fontSize: "1.4rem", fontWeight: "900" }}
+                    />
+                  </NavLink>
+                </Badge>
               </li>
               {!auth.user ? (
                 <>
@@ -64,14 +116,20 @@ const Header = () => {
                 <>
                   <li className="nav-item dropdown">
                     <a
-                      className="nav-link dropdown-toggle"
+                      className="nav-link "
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      {auth?.user?.name}
+                      <FaUserCircle
+                        style={{ fontSize: "1.4rem", fontWeight: "900" }}
+                      />
+                      {/* {auth?.user?.name} */}
                     </a>
                     <ul className="dropdown-menu">
+                      <h5 className="bg-dark text-light p-2">
+                        Hi {auth?.user?.name}
+                      </h5>
                       <li>
                         <NavLink
                           to={`/dashboard/${
@@ -96,17 +154,6 @@ const Header = () => {
                 </>
               )}
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

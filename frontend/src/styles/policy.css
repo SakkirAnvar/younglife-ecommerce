@@ -1,0 +1,10 @@
+.contentpolicy{
+    padding: 20px 150px;
+}
+.imagepolicy img{
+    background-color: black;
+    border-radius: 250px;
+    width: 100px;
+    align-items: center;
+    margin: 20px 0px;
+}
