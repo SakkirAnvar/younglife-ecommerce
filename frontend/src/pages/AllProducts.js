@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import { toast } from "react-hot-toast";
 import '../styles/allproducts.css'
+import { API_URL } from "../components/helper/apiUrl";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ const AllProducts = () => {
   //get All Category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${API_URL}/api/v1/category/get-category`);
       if (data.success) {
         setCategories(data.category);
       }
@@ -41,7 +42,7 @@ const AllProducts = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`${API_URL}/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -53,7 +54,7 @@ const AllProducts = () => {
   //get total count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get(`${API_URL}/api/v1/product/product-count`);
       setTotal(data.total);
     } catch (error) {
       console.log(error);
@@ -68,7 +69,7 @@ const AllProducts = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`${API_URL}/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts([...products, ...data.products]);
     } catch (error) {
@@ -99,7 +100,7 @@ const AllProducts = () => {
   //get filtered products
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("/api/v1/product/product-filters", {
+      const { data } = await axios.post(`${API_URL}/api/v1/product/product-filters`, {
         checked,
         radio,
       });
@@ -149,7 +150,7 @@ const AllProducts = () => {
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${API_URL}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { API_URL } from "../components/helper/apiUrl";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`${API_URL}/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -154,7 +155,7 @@ const HomePage = () => {
           index < 4 && (
               <div className="card card1 m-2" style={{ width: "18rem" }}>
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${API_URL}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />

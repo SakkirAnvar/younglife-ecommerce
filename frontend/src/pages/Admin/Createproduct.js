@@ -6,6 +6,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
+import { API_URL } from "../../components/helper/apiUrl";
 
 const Createproduct = () => {
   const [categories, setCategories] = useState([]);
@@ -22,7 +23,7 @@ const Createproduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${API_URL}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -48,7 +49,7 @@ const Createproduct = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
-        "/api/v1/product/create-product",
+        `${API_URL}/api/v1/product/create-product`,
         productData
       );
       if (data?.success) {

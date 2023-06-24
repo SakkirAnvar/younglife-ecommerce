@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import axios from "axios";
+import { API_URL } from "../../components/helper/apiUrl";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
 
   const getUser = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/auth/get-users`);
+      const { data } = await axios.get(`${API_URL}/api/v1/auth/get-users`);
       setUsers(data.users);
     } catch (error) {
       console.log(error);
@@ -21,7 +22,7 @@ const Users = () => {
 
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`/api/v1/auth/delete-users/${id}`);
+      const { data } = await axios.delete(`${API_URL}/api/v1/auth/delete-users/${id}`);
       getUser();
     } catch (error) {
       console.log(error);

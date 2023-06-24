@@ -4,6 +4,7 @@ import UserMenu from "../../components/Layout/UserMenu";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
 import moment from "moment";
+import { API_URL } from "../../components/helper/apiUrl";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -11,7 +12,7 @@ const Orders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/orders");
+      const { data } = await axios.get(`${API_URL}/api/v1/auth/orders`);
       setOrders(data);
     } catch (error) {
       console.log(error);

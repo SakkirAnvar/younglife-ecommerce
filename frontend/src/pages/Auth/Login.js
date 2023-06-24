@@ -6,6 +6,7 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import "../../styles/login.css";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../components/helper/apiUrl";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`/api/v1/auth/login`, { email, password });
+      const res = await axios.post(`${API_URL}/api/v1/auth/login`, { email, password });
       if (res && res.data.success) {
         toast.success(res.data.message);
         setAuth({
@@ -41,22 +42,6 @@ const Login = () => {
   return (
    
       <Layout title={"Login - Younglife"}>
-        {/* <div className="register">
-                    <h1>Welcome back</h1>
-                    <form className='form' onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <input type="email" placeholder='Enter Email' className="form-control" id="exampleInputEmail1" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        </div>
-                        <div className="mb-3">
-                            <input type="password" placeholder='Enter Password' className="form-control" id="exampleInputPassword1" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                        </div>
-                        <div className='mb-3'>
-                        <button type="submit" className="btn btn-primary" onClick={()=>{navigate('/forgot-password')}}>Forgot Password</button>
-                        </div>
-                        <button type="submit" className="btn btn-primary">Login</button>
-                    </form>
-
-                </div> */}
         <div className="py-5 px-5 bg">
           <div className=" justify-content-between  ">
             <div className=" d-flex justify-content-center align-items-center">

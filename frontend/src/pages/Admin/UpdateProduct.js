@@ -6,6 +6,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 const { Option } = Select;
+import { API_URL } from "../../components/helper/apiUrl";
 
 const UpdateProduct = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${API_URL}/api/v1/product/get-product/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -46,7 +47,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${API_URL}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -72,7 +73,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.put(
-        `/api/v1/product/update-product/${id}`,
+        `${API_URL}/api/v1/product/update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -140,7 +141,7 @@ const UpdateProduct = () => {
                   ) : (
                     <div className="text-center">
                       <img
-                        src={`/api/v1/product/product-photo/${id}`}
+                        src={`${API_URL}/api/v1/product/product-photo/${id}`}
                         alt="product photo"
                         height={"200px"}
                         className="img img-responsive"

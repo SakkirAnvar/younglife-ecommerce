@@ -2,6 +2,7 @@ import axios from "axios";
 import Layout from "../components/Layout/Layout";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../components/helper/apiUrl";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const ProductDetails = () => {
   const getProduct = async() => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${API_URL}/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data.product);
       getSimilarProducts(data.product._id,data.product.category._id)
@@ -28,7 +29,7 @@ const ProductDetails = () => {
   //get similar products
   const getSimilarProducts =async(pid,cid) => {
     try {
-      const {data} = await axios.get(`/api/v1/product/related-product/${pid}/${cid}`)
+      const {data} = await axios.get(`${API_URL}/api/v1/product/related-product/${pid}/${cid}`)
       setRealtedProducts(data.products)
     } catch (error) {
       console.log(error);
@@ -39,7 +40,7 @@ const ProductDetails = () => {
       <div className="row container mt-4">
         <div className="col-md-6">
           <img
-            src={`/api/v1/product/product-photo/${product._id}`}
+            src={`${API_URL}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top w-50"
             alt={product.name}
             height="300"
@@ -63,7 +64,7 @@ const ProductDetails = () => {
             {relatedProducts?.map((p) => (
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${API_URL}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />
