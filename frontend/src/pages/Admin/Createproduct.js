@@ -1,3 +1,4 @@
+import { API_URL } from "../../components/helper/apiUrl";
 import React, { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/Layout/AdminMenu";
@@ -6,7 +7,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
-import { API_URL } from "../../components/helper/apiUrl";
+
 
 const Createproduct = () => {
   const [categories, setCategories] = useState([]);
